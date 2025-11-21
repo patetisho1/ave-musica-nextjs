@@ -3,15 +3,12 @@
 @tailwind utilities;
 
 :root {
-  /* Color Palette - Ave Musica */
+  /* Color Palette - Modern Design */
   --primary-black: #0a0a0a;
-  --secondary-black: #1a1a1a;
-  --accent-gold: #ffd700;
-  --accent-purple: #8a2be2;
-  --accent-blue: #00bfff;
+  --accent-orange: #f97316;
+  --accent-magenta: #d946ef;
   --text-white: #ffffff;
-  --text-gray: #cccccc;
-  --text-dark: #333333;
+  --text-gray: #9ca3af;
 }
 
 html {

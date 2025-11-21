@@ -1,47 +1,29 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Music, Menu, X } from 'lucide-react'
+import { useState } from 'react'
+import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   const navLinks = [
-    { href: '#home', label: 'Начало' },
-    { href: '#about', label: 'За хора' },
-    { href: '#events', label: 'Събития' },
-    { href: '#performances', label: 'Изпълнения' },
-    { href: '#biography', label: 'Биографии' },
-    { href: '#contact', label: 'Контакт' },
+    { href: '#events', label: 'Events' },
+    { href: '#discography', label: 'Discography' },
+    { href: '#calendar', label: 'Calendar' },
+    { href: '#join', label: 'Join Us' },
   ]
 
   return (
-    <nav 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-black/95 backdrop-blur-md shadow-lg' 
-          : 'bg-black/80 backdrop-blur-sm'
-      }`}
-    >
+    <nav className="fixed top-0 w-full z-50 bg-[#0a0a0a] border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link 
             href="/" 
-            className="flex items-center gap-3 text-2xl font-bold text-yellow-400 hover:text-yellow-300 transition-colors"
+            className="text-3xl font-bold text-white tracking-tight"
           >
-            <Music className="w-7 h-7" />
-            <span>Ave Musica</span>
+            CHOIR
           </Link>
 
           {/* Desktop Menu */}
@@ -50,10 +32,9 @@ export default function Header() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-white hover:text-yellow-400 transition-colors font-medium relative group"
+                  className="text-white hover:text-orange-400 transition-colors font-medium text-sm uppercase tracking-wide"
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all group-hover:w-full"></span>
                 </a>
               </li>
             ))}
@@ -82,7 +63,7 @@ export default function Header() {
                   <a
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-white hover:text-yellow-400 transition-colors block py-2"
+                    className="text-white hover:text-orange-400 transition-colors block py-2 uppercase tracking-wide"
                   >
                     {link.label}
                   </a>

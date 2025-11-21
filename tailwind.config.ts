@@ -12,17 +12,14 @@ const config: Config = {
       colors: {
         primary: {
           black: "#0a0a0a",
-          "black-secondary": "#1a1a1a",
         },
         accent: {
-          gold: "#ffd700",
-          purple: "#8a2be2",
-          blue: "#00bfff",
+          orange: "#f97316",
+          magenta: "#d946ef",
         },
         text: {
           white: "#ffffff",
-          gray: "#cccccc",
-          dark: "#333333",
+          gray: "#9ca3af",
         },
       },
       fontFamily: {
