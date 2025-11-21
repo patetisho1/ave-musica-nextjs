@@ -30,7 +30,7 @@
 4. ✅ **Git инициализиран**
    - `.gitignore` настройден (като rabotim.com)
    - Първи commit направен
-   - Готов за GitHub push
+   - ✅ **Кодът е push-нат към GitHub!**
 
 5. ✅ **Документация създадена**
    - `README.md` - Описание на проекта
@@ -40,63 +40,84 @@
 
 ---
 
-## 📋 Следващи Стъпки
+## ✅ Фаза 2: GitHub Setup - ЗАВЪРШЕНА
 
-### Фаза 2: GitHub Setup (Сега)
+### Какво е направено:
 
-**Трябва да направиш:**
+1. ✅ **GitHub repository създаден**
+   - URL: https://github.com/patetisho1/ave-musica-nextjs
 
-1. **Създай GitHub Repository:**
-   - Отиди в: https://github.com/new
-   - Repository name: `ave-musica-nextjs`
-   - Visibility: Public (или Private)
-   - НЕ създавай README, .gitignore или license
+2. ✅ **Remote добавено**
+   - `origin` → https://github.com/patetisho1/ave-musica-nextjs.git
 
-2. **Push към GitHub:**
-   ```powershell
-   cd "C:\Users\TihomirTodorov\Desktop\Cursor AI\ave-musica-nextjs"
-   git remote add origin https://github.com/patetisho1/ave-musica-nextjs.git
-   git branch -M main
-   git push -u origin main
-   ```
-
-**За подробни инструкции виж:** `SETUP_GITHUB.md`
+3. ✅ **Кодът е push-нат**
+   - Branch: `main`
+   - Всички файлове са в GitHub
 
 ---
 
-### Фаза 3: Vercel Deployment (След GitHub)
+## 📋 Следващи Стъпки
+
+### Фаза 3: Vercel Deployment (Следваща стъпка - 10 минути)
 
 **Трябва да направиш:**
 
 1. **Отиди в Vercel:**
    - https://vercel.com/new
-   - Import от GitHub
-   - Избери `ave-musica-nextjs` repository
+   - Влез с GitHub акаунта си
 
-2. **Настрой Environment Variables:**
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - `SUPABASE_SERVICE_ROLE_KEY`
+2. **Import от GitHub:**
+   - Кликни **Import Git Repository**
+   - Намери `ave-musica-nextjs` repository
+   - Кликни **Import**
 
-3. **Deploy!**
+3. **Настройка:**
+   - **Project Name:** `ave-musica-nextjs` (или както предпочиташ)
+   - **Framework Preset:** Next.js (трябва автоматично да се засече)
+   - Кликни **Continue**
+
+4. **Environment Variables:**
+   - За сега можеш да ги оставиш празни (ще ги добавим след Supabase setup)
+   - Кликни **Deploy**
+
+5. **Готово!** Vercel ще deploy-не проекта автоматично
 
 **За подробни инструкции виж:** `SETUP_VERCEL.md`
 
 ---
 
-### Фаза 4: Supabase Setup (След Vercel)
+### Фаза 4: Supabase Setup (След Vercel - 15 минути)
 
 **Трябва да направиш:**
 
-1. Създай нов Supabase проект (или използвай съществуващ)
-2. Създай таблици:
-   - `events` - за събития
-   - `performances` - за изпълнения
-   - `newsletter` - за newsletter subscriptions
-3. Настрой RLS policies
-4. Създай migrations
+1. **Създай Supabase проект:**
+   - Отиди в: https://supabase.com/dashboard
+   - Кликни **New Project**
+   - **Name:** `ave-musica-nextjs` (или както предпочиташ)
+   - **Database Password:** Избери силна парола
+   - **Region:** Избери най-близкия region
+   - Кликни **Create new project**
 
-**За подробни инструкции ще добавя:** `SETUP_SUPABASE.md`
+2. **Вземи Keys:**
+   - След като проектът е създаден, отиди в **Settings** → **API**
+   - Копирай:
+     - **Project URL** → `NEXT_PUBLIC_SUPABASE_URL`
+     - **anon public** key → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+     - **service_role** key → `SUPABASE_SERVICE_ROLE_KEY` (за backend)
+
+3. **Добави Environment Variables в Vercel:**
+   - Отиди в Vercel Dashboard → твоя проект → **Settings** → **Environment Variables**
+   - Добави трите variables от по-горе
+   - Кликни **Save**
+   - ⚠️ **ВАЖНО:** Redeploy проекта след добавяне на environment variables!
+
+4. **Добави Environment Variables локално:**
+   - Създай `.env.local` файл в проекта:
+   ```powershell
+   cd "C:\Users\TihomirTodorov\Desktop\Cursor AI\ave-musica-nextjs"
+   copy env.example .env.local
+   # Отвори .env.local и попълни стойностите от Supabase
+   ```
 
 ---
 
@@ -129,8 +150,8 @@
 ## 🎯 Текущ Статус
 
 - ✅ Фаза 1: Setup - **ЗАВЪРШЕНА**
-- ⏳ Фаза 2: GitHub - **ОЧАКВА (трябва да направиш)**
-- ⏳ Фаза 3: Vercel - **ОЧАКВА**
+- ✅ Фаза 2: GitHub - **ЗАВЪРШЕНА**
+- ⏳ Фаза 3: Vercel - **ОЧАКВА (трябва да направиш)**
 - ⏳ Фаза 4: Supabase - **ОЧАКВА**
 - ⏳ Фаза 5: Компоненти - **ОЧАКВА**
 - ⏳ Фаза 6: Backend - **ОЧАКВА**
@@ -139,13 +160,11 @@
 
 ## 📝 Бележки
 
-1. **Проектът е готов за GitHub push** - всички файлове са commit-нати
-2. **Следващата стъпка е GitHub** - създай repository и push-ни
-3. **След GitHub е Vercel** - автоматично deployment
-4. **След Vercel е Supabase** - database setup
-5. **След това миграцията на компоненти** - постепенно
+1. ✅ **Кодът е в GitHub!** - https://github.com/patetisho1/ave-musica-nextjs
+2. **Следващата стъпка е Vercel** - Setup на автоматично deployment
+3. **След Vercel е Supabase** - Database setup
+4. **След това миграцията на компоненти** - постепенно
 
 ---
 
-**Готов за следващата стъпка: GitHub Setup!** 🚀
-
+**Следваща стъпка: Setup на Vercel Deployment!** 🚀
