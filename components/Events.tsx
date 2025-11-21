@@ -25,7 +25,7 @@ export default function Events() {
                 </h2>
                 <span className="text-white text-xl">♪</span>
               </div>
-              <p className="text-text-gray text-sm leading-relaxed">
+              <p className="text-gray-400 text-sm leading-relaxed">
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
               </p>
             </div>
@@ -38,7 +38,7 @@ export default function Events() {
               <h2 className="text-2xl font-bold text-white mb-4 uppercase tracking-wide">
                 DISCOGRAPHY
               </h2>
-              <p className="text-text-gray text-sm leading-relaxed">
+              <p className="text-gray-400 text-sm leading-relaxed">
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam angumuy nibh.
               </p>
             </div>
@@ -54,22 +54,38 @@ export default function Events() {
                   <span>→</span>
                 </div>
               </div>
-              <div className="grid grid-cols-7 gap-2 text-center text-text-gray text-xs">
-                {/* Days of week */}
-                {['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'].map((day) => (
-                  <div key={day} className="font-semibold py-2">
-                    {day}
-                  </div>
-                ))}
-                {/* Calendar dates */}
-                {Array.from({ length: 31 }, (_, i) => i + 1).map((date) => (
-                  <div
-                    key={date}
-                    className="py-2 hover:bg-white/10 rounded cursor-pointer transition-colors"
-                  >
-                    {date}
-                  </div>
-                ))}
+              <div className="space-y-2">
+                {/* Days of week header */}
+                <div className="grid grid-cols-7 gap-2 text-center text-white text-xs font-semibold mb-2">
+                  {['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'].map((day) => (
+                    <div key={day} className="py-2">
+                      {day}
+                    </div>
+                  ))}
+                </div>
+                {/* Calendar dates - vertical layout per day */}
+                <div className="grid grid-cols-7 gap-2 text-white text-xs">
+                  {[
+                    [1, 8, 15, 22, 29],
+                    [2, 9, 16, 23, 30],
+                    [3, 10, 17, 24, 31],
+                    [4, 11, 18, 25],
+                    [5, 12, 19, 26],
+                    [6, 13, 20, 27],
+                    [7, 14, 21, 28],
+                  ].map((dates, dayIndex) => (
+                    <div key={dayIndex} className="flex flex-col gap-1">
+                      {dates.map((date) => (
+                        <div
+                          key={date}
+                          className="py-1 hover:bg-white/10 rounded cursor-pointer transition-colors text-center"
+                        >
+                          {date}
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
