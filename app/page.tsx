@@ -4,7 +4,7 @@ import Events from '@/components/Events'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-white">
+    <main className="min-h-screen bg-black text-white">
       <Header />
       <Hero />
       <Events />

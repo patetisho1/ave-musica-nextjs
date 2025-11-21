@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Calendar, MapPin, Clock, ArrowRight, Ticket } from 'lucide-react'
+import Image from 'next/image'
 
 const events = [
   {
