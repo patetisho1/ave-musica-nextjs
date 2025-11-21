@@ -18,12 +18,12 @@ export default function Header() {
   }, [])
 
   const navLinks = [
-    { href: '#home', label: 'Начало' },
-    { href: '#about', label: 'За нас' },
-    { href: '#events', label: 'Концерти' },
-    { href: '#archive', label: 'Архив' },
-    { href: '#gallery', label: 'Галерия' },
-    { href: '#contact', label: 'Контакт' },
+    { href: '#home', label: 'НАЧОЛО' },
+    { href: '#about', label: 'ЗА НАС' },
+    { href: '#events', label: 'КОНЕРТИ' },
+    { href: '#archive', label: 'РЕПЕРТОАР' },
+    { href: '#gallery', label: 'ГАЛЕРИЯ' },
+    { href: '#contact', label: 'КОНТАКТИ' },
   ]
 
   return (

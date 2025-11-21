@@ -33,7 +33,7 @@ const events: EventItem[] = [
   },
   {
     id: 3,
-    title: 'ГАЛЕРИЯ',
+    title: 'ПРИСЪЕДИНЕТЕ СЕ КЪМ НАС',
     bgImage: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80',
     buttonText: 'ВИЖТЕ ПОВЕЧЕ',
   },
@@ -44,12 +44,17 @@ export default function Events() {
     <section id="events" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
-        <h2 className="text-5xl md:text-6xl font-bold text-[#1a365d] text-center mb-12">
-          ПОТОПЕТЕ СЕ В СВЕТА НА МУЗИКАТА
-        </h2>
+        <div className="mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+            ПОТОПЕТЕ СЕ В СВЕТА НА МУЗИКАТА
+          </h2>
+          <p className="text-xl md:text-2xl text-black">
+            ОТКРИЙТЕ ХОР AVE MUSICA
+          </p>
+        </div>
 
         {/* Three Content Blocks */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 mt-12">
           {/* Block 1: Upcoming Events */}
           <div className="group relative h-[500px] rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
             <div className="absolute inset-0">
@@ -110,12 +115,12 @@ export default function Events() {
             </div>
           </div>
 
-          {/* Block 3: Gallery */}
+          {/* Block 3: Join Us */}
           <div className="group relative h-[500px] rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
             <div className="absolute inset-0">
               <Image
                 src={events[2].bgImage}
-                alt="Gallery"
+                alt="Join Us"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -126,7 +131,7 @@ export default function Events() {
             {events[2].buttonText && (
               <div className="absolute bottom-20 left-0 right-0 px-4">
                 <Link
-                  href="#gallery"
+                  href="#contact"
                   className="inline-flex items-center gap-2 w-full justify-center px-6 py-3 bg-[#1a365d] hover:bg-[#2c5282] text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
                 >
                   <Eye className="w-5 h-5" />
