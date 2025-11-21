@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="bg" className="scroll-smooth">
       <body
-        className={`${montserrat.variable} ${inter.variable} antialiased bg-black text-white`}
+        className={`${montserrat.variable} ${inter.variable} antialiased bg-white text-black`}
       >
         {children}
       </body>

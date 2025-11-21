@@ -1,8 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Music, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -18,9 +19,10 @@ export default function Header() {
 
   const navLinks = [
     { href: '#home', label: 'Начало' },
-    { href: '#about', label: 'За хора' },
-    { href: '#events', label: 'Събития' },
-    { href: '#performances', label: 'Изпълнения' },
+    { href: '#about', label: 'За нас' },
+    { href: '#events', label: 'Концерти' },
+    { href: '#archive', label: 'Архив' },
+    { href: '#gallery', label: 'Галерия' },
     { href: '#contact', label: 'Контакт' },
   ]
 
@@ -28,8 +30,8 @@ export default function Header() {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-black/95 backdrop-blur-xl shadow-xl border-b border-white/10'
-          : 'bg-transparent'
+          ? 'bg-white shadow-lg'
+          : 'bg-white/95 backdrop-blur-sm'
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,12 +41,19 @@ export default function Header() {
             href="/"
             className="flex items-center gap-3 group"
           >
-            <div className="relative">
-              <Music className="w-8 h-8 text-purple-400 group-hover:text-purple-300 transition-colors" />
-              <div className="absolute inset-0 bg-purple-400/20 rounded-full blur-xl group-hover:bg-purple-300/30 transition-colors" />
+            <div className="relative w-10 h-10">
+              {/* Bird Logo SVG */}
+              <svg
+                viewBox="0 0 100 100"
+                className="w-full h-full text-yellow-500 group-hover:text-yellow-600 transition-colors"
+                fill="currentColor"
+              >
+                <path d="M50 20 Q60 30 70 40 Q80 50 70 60 Q60 70 50 80 Q40 70 30 60 Q20 50 30 40 Q40 30 50 20 Z" />
+                <path d="M30 50 Q50 35 70 50" stroke="currentColor" strokeWidth="3" fill="none" />
+              </svg>
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-              Ave Musica
+            <span className="text-2xl font-bold text-[#1a365d]">
+              AVE MUSICA
             </span>
           </Link>
 
@@ -54,10 +63,10 @@ export default function Header() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-white/80 hover:text-white font-medium transition-colors relative group"
+                  className="text-[#1a365d] hover:text-yellow-500 font-medium transition-colors relative group"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-500 group-hover:w-full transition-all duration-300" />
                 </a>
               </li>
             ))}
@@ -66,7 +75,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+            className="md:hidden text-[#1a365d] p-2 hover:bg-gray-100 rounded-lg transition-colors"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -79,14 +88,14 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden pb-6 animate-fade-in">
-            <ul className="flex flex-col gap-4 pt-4 border-t border-white/10">
+          <div className="md:hidden pb-6 animate-fade-in border-t border-gray-200">
+            <ul className="flex flex-col gap-4 pt-4">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-white/80 hover:text-white block py-2 font-medium transition-colors"
+                    className="text-[#1a365d] hover:text-yellow-500 block py-2 font-medium transition-colors"
                   >
                     {link.label}
                   </a>
