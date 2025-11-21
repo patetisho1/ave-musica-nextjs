@@ -4,7 +4,16 @@ import Image from 'next/image'
 import { Calendar, ArrowRight, Eye } from 'lucide-react'
 import Link from 'next/link'
 
-const events = [
+interface EventItem {
+  id: number
+  title: string
+  bgImage: string
+  overlayText?: string[]
+  gridImages?: number
+  buttonText?: string
+}
+
+const events: EventItem[] = [
   {
     id: 1,
     title: 'ПРЕДСТОЯЩИ СЪБИТИЯ',
@@ -54,16 +63,18 @@ export default function Events() {
             </div>
             
             {/* Overlay Text */}
-            <div className="absolute inset-0 flex flex-col justify-center items-center px-6 text-white">
-              {events[0].overlayText.map((text, index) => (
-                <p
-                  key={index}
-                  className="text-lg md:text-xl font-medium mb-2 text-center"
-                >
-                  {text}
-                </p>
-              ))}
-            </div>
+            {events[0].overlayText && (
+              <div className="absolute inset-0 flex flex-col justify-center items-center px-6 text-white">
+                {events[0].overlayText.map((text, index) => (
+                  <p
+                    key={index}
+                    className="text-lg md:text-xl font-medium mb-2 text-center"
+                  >
+                    {text}
+                  </p>
+                ))}
+              </div>
+            )}
 
             {/* Title */}
             <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm p-4">
@@ -112,16 +123,18 @@ export default function Events() {
             </div>
 
             {/* Button */}
-            <div className="absolute bottom-20 left-0 right-0 px-4">
-              <Link
-                href="#gallery"
-                className="inline-flex items-center gap-2 w-full justify-center px-6 py-3 bg-[#1a365d] hover:bg-[#2c5282] text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
-              >
-                <Eye className="w-5 h-5" />
-                {events[2].buttonText}
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
+            {events[2].buttonText && (
+              <div className="absolute bottom-20 left-0 right-0 px-4">
+                <Link
+                  href="#gallery"
+                  className="inline-flex items-center gap-2 w-full justify-center px-6 py-3 bg-[#1a365d] hover:bg-[#2c5282] text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
+                  <Eye className="w-5 h-5" />
+                  {events[2].buttonText}
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </div>
+            )}
 
             {/* Title */}
             <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm p-4">
