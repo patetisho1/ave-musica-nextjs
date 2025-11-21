@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   /* Color Palette - Ave Musica */
@@ -12,16 +14,6 @@
   --text-dark: #333333;
 }
 
-@theme inline {
-  --color-primary-black: var(--primary-black);
-  --color-secondary-black: var(--secondary-black);
-  --color-accent-gold: var(--accent-gold);
-  --color-accent-purple: var(--accent-purple);
-  --color-accent-blue: var(--accent-blue);
-  --font-primary: var(--font-montserrat);
-  --font-secondary: var(--font-inter);
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -32,4 +24,25 @@ body {
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
